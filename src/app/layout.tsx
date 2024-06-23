@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Dashbar from "@/shared/dashbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="container flex gap-4 p-4">
+          <div className="w-fit">
+            <Dashbar />
+          </div>
+          <div className="flex-grow w-full">{children}</div>
+        </div>
+      </body>
     </html>
   );
 }
